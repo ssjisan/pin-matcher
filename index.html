@@ -56,7 +56,7 @@
     </div>
     <script>
         document.getElementById("generateButton").addEventListener("click",function(){
-            const randomPin = Math.floor(Math.random() * 9999);
+            const randomPin = Math.floor(Math.random() * (9999- 1000)) + 1000;
             console.log(randomPin);
             const randomPinScreen = document.getElementById("pinScreen");
             randomPinScreen.style.textAlign = "center";
@@ -73,7 +73,7 @@
                 document.getElementById("done").style.display = "none"; 
                 randomPinScreen.value = ""; 
                 document.getElementById("rejected").style.display= "block";
-                let tryRemaining = document.getElementById("tryLeft").innerText -= 1;
+                let tryRemaining = document.getElementById("tryLeft").innerText -= (0, 1);
                 if(tryRemaining == 0){
                     document.getElementById("submitButton").disabled = true;
                     document.getElementById("submitButton").style.color = "black";
