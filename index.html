@@ -43,7 +43,7 @@
                             </div>
                             <div>
                                 <button id="submitButton" type="submit" class="submit-btn">Submit</button>
-                                <p class="action-left">3 try left</p>
+                                <p class="action-left"> <span id="tryLeft">3</span> try left</p>
                             </div>
                     </div>
                 </div>
@@ -73,7 +73,12 @@
                 document.getElementById("done").style.display = "none"; 
                 randomPinScreen.value = ""; 
                 document.getElementById("rejected").style.display= "block";
-                
+                let tryRemaining = document.getElementById("tryLeft").innerText -= 1;
+                if(tryRemaining == 0){
+                    document.getElementById("submitButton").disabled = true;
+                    document.getElementById("submitButton").style.color = "black";
+                    document.getElementById("submitButton").style.backgroundColor = "red";
+                }
             }
         })
         })
